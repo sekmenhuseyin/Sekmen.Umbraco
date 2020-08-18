@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using Umbraco.Core;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web.Mvc;
-// ReSharper disable Mvc.ViewNotResolved
 
 namespace CreatorCms.Core.Controllers
 {
@@ -18,20 +18,24 @@ namespace CreatorCms.Core.Controllers
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
 
+            bool result = false;
             try
             {
+                //create media
                 string mediaTypeAlias = file.ContentType.Contains("image") ? "Image" : "File";
                 IMedia media = Services.MediaService.CreateMedia(file.FileName, 1054, mediaTypeAlias);
-                media.SetValue("umbracoFile", file);
+                //set file
+                media.SetValue(Services.ContentTypeBaseServices, Constants.Conventions.Media.File, file.FileName, file.InputStream);
+                //save
                 Services.MediaService.Save(media);
-
-                return Json(true, JsonRequestBehavior.AllowGet);
+                result = true;
             }
             catch (Exception e)
             {
                 Logger.Error<UploadController>("Document", e);
-                return Json(false, JsonRequestBehavior.AllowGet);
             }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
