@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Tanman.Umbraco", "Tanman.Umbraco\", "{6D72CA93-63E3-4428-A6A6-E5F4D31C5A12}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{bf7da77a-0e93-444e-b800-fb4d619b8893}|CreatorCms.Core.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_5924"
 		Debug.AspNetCompiler.PhysicalPath = "Tanman.Umbraco\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_5924\"

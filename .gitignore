@@ -5,6 +5,7 @@
 
 # Build results
 obj
+bin
 
 #nuget packages directory
 packages
@@ -44,3 +45,4 @@ Desktop.ini
 
 #umbraco folders
 App_Data
+!Tanman.Umbraco/bin/
