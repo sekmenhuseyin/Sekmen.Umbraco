@@ -1,5 +1,7 @@
 ﻿using CreatorCms.Core.Services;
+using CreatorCms.Core.Services.Models;
 using Shouldly;
+using System.Collections.Generic;
 using Xunit;
 
 namespace CreatorCms.Test
@@ -9,8 +11,9 @@ namespace CreatorCms.Test
         [Fact]
         public void TestMethod1()
         {
-            var response = new CountriesService().GetAllCountries().Result;
+            List<CountryResponse> response = new CountriesService().GetAllCountries().Result;
             response.ShouldNotBeNull();
+            response.Count.ShouldBeGreaterThan(1);
         }
     }
 }

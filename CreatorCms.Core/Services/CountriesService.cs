@@ -1,5 +1,6 @@
 ﻿using CreatorCms.Core.Services.Models;
 using RestSharp;
+using RestSharp.Serializers.NewtonsoftJson;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,13 +13,27 @@ namespace CreatorCms.Core.Services
 
         public async Task<List<CountryResponse>> GetAllCountries()
         {
-            RestClient client = new RestClient("https://restcountries-v1.p.rapidapi.com/all");
+            List<CountryResponse> response = await GetResponse<List<CountryResponse>>("all");
+
+            return response;
+        }
+
+        private static async Task<T> GetResponse<T>(string url)
+        {
+            RestClient client = new RestClient("https://restcountries-v1.p.rapidapi.com/" + url);
+            client.UseNewtonsoftJson();
             RestRequest request = new RestRequest(Method.GET);
             request.AddHeader("x-rapidapi-host", RapidapiHost);
             request.AddHeader("x-rapidapi-key", RapidapiKey);
-            List<CountryResponse> response = await client.GetAsync<List<CountryResponse>>(request);
+            IRestResponse<T> response = await client.ExecuteAsync<T>(request);
+            if (response.IsSuccessful)
+            {
+                return response.Data;
+            }
 
-            return response;
+            //TODO: log error
+
+            return default;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace CreatorCms.Core.Services.Models
         public string[] AltSpellings { get; set; }
 
         [JsonProperty("region")]
-        public Region Region { get; set; }
+        public string Region { get; set; }
 
         [JsonProperty("subregion")]
         public string Subregion { get; set; }
@@ -64,29 +64,30 @@ namespace CreatorCms.Core.Services.Models
         [JsonProperty("languages")]
         public string[] Languages { get; set; }
 
-        [JsonProperty("translations")]
-        public Translations Translations { get; set; }
+        //[JsonProperty("translations")]
+        //public Translations Translations { get; set; }
 
         [JsonProperty("relevance")]
         public string Relevance { get; set; }
     }
 
-    public class Translations
-    {
-        [JsonProperty("de")]
-        public string De { get; set; }
+    //public class Translations
+    //{
+    //    [JsonProperty("de")]
+    //    public string De { get; set; }
 
-        [JsonProperty("es")]
-        public string Es { get; set; }
+    //    [JsonProperty("es")]
+    //    public string Es { get; set; }
 
-        [JsonProperty("fr")]
-        public string Fr { get; set; }
+    //    [JsonProperty("fr")]
+    //    public string Fr { get; set; }
 
-        [JsonProperty("ja")]
-        public string Ja { get; set; }
+    //    [JsonProperty("ja")]
+    //    public string Ja { get; set; }
 
-        [JsonProperty("it")]
-        public string It { get; set; }
-    }
-    public enum Region { Africa, Americas, Asia, Empty, Europe, Oceania, Polar };
+    //    [JsonProperty("it")]
+    //    public string It { get; set; }
+    //}
+
+    //public enum Region { Africa, Americas, Asia, Empty, Europe, Oceania, Polar };
 }
