@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CreatorCms.Core.Services
 {
-    public class CountriesService// : UmbracoApiController
+    public class CountriesService
     {
         private const string RapidapiHost = "restcountries-v1.p.rapidapi.com";
         private const string RapidapiKey = "75d4248cc5msh98b980e86f79fe8p1d703fjsn9569090dd601";

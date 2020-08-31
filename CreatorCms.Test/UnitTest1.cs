@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using CreatorCms.Core.Services;
+using Shouldly;
+using Xunit;
 
 namespace CreatorCms.Test
 {
@@ -7,6 +9,8 @@ namespace CreatorCms.Test
         [Fact]
         public void TestMethod1()
         {
+            var response = new CountriesService().GetAllCountries().Result;
+            response.ShouldNotBeNull();
         }
     }
 }
