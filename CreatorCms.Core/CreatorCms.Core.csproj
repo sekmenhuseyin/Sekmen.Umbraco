@@ -242,10 +242,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\AuthenticationChecker.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CountriesService.cs" />
     <Compile Include="Services\Models\CountryResponse.cs" />
+    <Compile Include="StartUp\Routing.cs" />
     <Compile Include="StartUp\UserComponents.cs" />
   </ItemGroup>
   <ItemGroup>

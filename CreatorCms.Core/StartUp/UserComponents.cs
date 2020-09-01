@@ -2,6 +2,7 @@
 using CreatorCms.Core.Services;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
+// ReSharper disable UnusedMember.Global
 
 namespace CreatorCms.Core.StartUp
 {
@@ -11,7 +12,7 @@ namespace CreatorCms.Core.StartUp
         {
             composition.Register<UploadController>(Lifetime.Request);
             composition.Register<CountriesService>(Lifetime.Request);
-
+            composition.Components().Append<Routing>();
         }
     }
 }
